@@ -25,7 +25,7 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        viewModel.launches.observe(viewLifecycleOwner, { stuff ->
+        viewModel.show.observe(viewLifecycleOwner, { stuff ->
         Log.i("stuff","here")
         })
     }
