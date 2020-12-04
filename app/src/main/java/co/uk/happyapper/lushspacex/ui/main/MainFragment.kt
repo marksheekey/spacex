@@ -35,7 +35,8 @@ class MainFragment : Fragment() {
             adapter = rocketItemAdapter
         }
         swiperefresh.setOnRefreshListener {
-            //viewModel.refresh()
+            //todo refresh list?
+            swiperefresh.isRefreshing = false
         }
 
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
