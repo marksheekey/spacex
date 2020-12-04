@@ -19,7 +19,7 @@ open class NetworkCall<T>{
         var result: MutableLiveData<Resource<T>> = MutableLiveData()
 
         override fun onFailure(call: Call<T>, t: Throwable) {
-            result.value = Resource.error("An error")
+            result.value = Resource.error(t.message)
             t.printStackTrace()
         }
 
@@ -27,7 +27,7 @@ open class NetworkCall<T>{
             if(response.isSuccessful)
                 result.value = Resource.success(response.body())
             else{
-                result.value = Resource.error("An error")
+                result.value = Resource.error(response.message())
             }
         }
     }
